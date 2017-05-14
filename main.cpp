@@ -343,17 +343,15 @@ extern "C" void* ThreadStats(void*) {
 }
 
 static const string mainnet_seeds[] = {
-        "62.210.141.185",
-        "seed.ppcoin.net",
+        "seed.peercoin.net",
         ""};
 
-static const string testnet_seeds[] = {"seed.ppcoin.org", ""};
+static const string testnet_seeds[] = {"tseed.peercoin.net", ""};
 static const string *seeds = mainnet_seeds;
 
 extern "C" void* ThreadSeeder(void*) {
-  if (!fTestNet){
-    db.Add(CService("toBeImplemented.onion", 9901), true);
-  }
+  db.Add(CService("127.0.0.1", fTestNet ? 9903 : 9901), true);
+
   do {
     for (int i=0; seeds[i] != ""; i++) {
       vector<CNetAddr> ips;
@@ -381,7 +379,7 @@ int main(int argc, char **argv) {
   bool fDNS = true;
   if (opts.fUseTestNet) {
       printf("Using testnet.\n");
-      pchMessageStart[0] = 0xcd;
+      pchMessageStart[0] = 0xcb;
       pchMessageStart[1] = 0xf2;
       pchMessageStart[2] = 0xc0;
       pchMessageStart[3] = 0xef;
