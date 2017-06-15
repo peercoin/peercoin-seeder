@@ -1,0 +1,18 @@
+# /etc/systemd/system/tdnsseed.service
+
+[Unit]
+Description=Peercoin dns seed service - testnet
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/dnsseed -h $DOMAIN_NAME -n $IP_ADDRESS -t 32 -testnet
+KillMode=process
+Restart=always
+## security
+PrivateTmp=true
+PrivateDevices=true
+ProtectSystem=full
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target
