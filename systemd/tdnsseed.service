@@ -6,7 +6,7 @@ After=network.target
 
 [Service]
 ExecStart=/usr/bin/dnsseed -h $DOMAIN_NAME -n $IP_ADDRESS -t 32 -testnet
-WorkingDirectory=/var/lib/dnsseed-tesnet
+WorkingDirectory=/var/lib/dnsseed-testnet
 KillMode=process
 Restart=always
 ## security
