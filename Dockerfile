@@ -24,5 +24,10 @@ RUN apk --no-cache add \
     libcrypto1.0 \
     libstdc++
 
-ENTRYPOINT dnsseed
+ENV APP_DIRECTORY=/data
 
+WORKDIR ${APP_DIRECTORY}
+
+VOLUME ${APP_DIRECTORY}
+
+ENTRYPOINT dnsseed
