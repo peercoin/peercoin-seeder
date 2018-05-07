@@ -51,6 +51,6 @@ sudo setcap 'cap_net_bind_service=+ep' ./dnsseed
 RUNNING in Docker
 -----------------
 
-docker pull peercoin-seeder
+docker pull peerchemist/peercoin-seeder
 
 docker run -it peercoin-seeder --testnet -h $DOMAIN_NAME -n $IP -t 32
