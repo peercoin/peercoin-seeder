@@ -345,11 +345,13 @@ extern "C" void* ThreadStats(void*) {
 static const string mainnet_seeds[] = {
         "seed.peercoin.net",
         "seed2.peercoin.net",
+        "seed.peercoin-library.org",
         ""};
 
 static const string testnet_seeds[] = {
         "tseed.peercoin.net",
-        "t-seed2.peercoin.net",
+        "tseed2.peercoin.net",
+        "tseed.peercoin-library.org",
         ""};
 static const string *seeds = mainnet_seeds;
 
