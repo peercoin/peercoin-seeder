@@ -1,7 +1,6 @@
-peercoin-seeder
-===============
+# primecoin-seeder
 
-peercoin-seeder is a crawler for the Peercoin network, which exposes a list
+primecoin-seeder is a crawler for the Primecoin network, which exposes a list
 of reliable nodes via a built-in DNS server.
 
 Features:
@@ -19,8 +18,7 @@ Dependencies & building on Ubuntu Linux:
 sudo apt install libboost-all-dev libssl-dev
 make
 
-USAGE
------
+## USAGE
 
 Assuming you want to run a dns seed on dnsseed.example.com, you will
 need an authorative NS record in example.com's domain record, pointing
@@ -38,8 +36,7 @@ On the system vps.example.com, you can now run dnsseed:
 If you want the DNS server to report SOA records, please provide an
 e-mailadres (with the @ part replaced by .) using -m.
 
-RUNNING AS NON-ROOT
--------------------
+## RUNNING AS NON-ROOT
 
 Typically, you'll need root privileges to listen to port 53 (name service).
 
@@ -47,10 +44,3 @@ One solution is using setcap (Linux only) to give the executable permission
 to use a privileged port:
 
 sudo setcap 'cap_net_bind_service=+ep' ./dnsseed
-
-RUNNING in Docker
------------------
-
-docker pull peerchemist/peercoin-seeder
-
-docker run -it peercoin-seeder --testnet -h $DOMAIN_NAME -n $IP -t 32
